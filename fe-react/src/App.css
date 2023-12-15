@@ -197,3 +197,66 @@ div.post-page a.delete-btn{
   border-radius: 5px;
   gap: 5px;
 }
+
+div.comment{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 5px;
+  background-color: #F5F5F5;
+  padding: 5px;
+  /* border-radius: 5px; */
+}
+
+div.comment div.commentator a{
+  text-decoration: none;
+  color: inherit;
+}
+
+div.comment p.info {
+  margin: 6px 0;
+  color: #888;
+  font-size: 0.7rem;
+  font-weight: bold;
+  display: flex;
+  gap: 5px;
+}
+
+div.comment p.info a.author {
+  color: #333;
+}
+
+span.comment {
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+span.separator {
+  border-top: 1px solid #333;
+  width: 100%;
+  height: 1px;
+  display: block;
+}
+
+div.comment-form {
+  display: flex;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+div.comment-form button:disabled{
+  background-color: #cbcbcb;
+}
+
+div.comment-form button{
+  margin-bottom: 5px;
+  width: 10%;
+}
+
+div.comment p.info a.action {
+  color: blue;
+  cursor: pointer;
+}

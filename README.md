@@ -14,7 +14,7 @@ This project is using react as frontend, laravel as backend & MySql As DB.
    php artisan storage:link
    php artisan serve
    ```
-3. Import user.sql and users.sql
+3. Import user.sql,posts.sql and comments.sql
 4. Go to fe-react directory
    ```sh
    npm install

@@ -51,7 +51,6 @@ const CreatePostPage = () => {
       <input
         type="file"
         onChange={(ev) => {
-          console.log("ev.target.files", ev.target.files[0]);
           setFiles(ev.target.files[0]);
         }}
       />

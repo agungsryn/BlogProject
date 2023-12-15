@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CommentResource;
+
 use App\Models\Comment;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+
 use Illuminate\Support\Facades\Auth;
-use App\Http\Resources\CommentResource;
+
 
 class CommentController extends Controller
 {
@@ -101,7 +103,7 @@ class CommentController extends Controller
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comment $comment)
+    public function destroy(Comment $comment, $id)
     {
         $comment = Comment::findOrFail($id);
         $comment->delete();

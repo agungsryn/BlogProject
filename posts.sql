@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 14, 2023 at 07:17 PM
+-- Generation Time: Dec 15, 2023 at 02:43 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -27,21 +27,6 @@ SET time_zone = "+00:00";
 -- Table structure for table `posts`
 --
 
-CREATE TABLE `posts` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(100) NOT NULL,
-  `cover` varchar(255) NOT NULL,
-  `summary` text NOT NULL,
-  `content` text NOT NULL,
-  `author_id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `posts`
---
 
 INSERT INTO `posts` (`id`, `title`, `cover`, `summary`, `content`, `author_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (4, 'Apple adds a new purple color update', '7InUSvUhKMZpoBUoNMPxsqcdanfj34.webp', 'Apple has added a new color option to the iPhone 12 lineup — a rare midcycle facelift for the company’s flagship product. The new color is purple, and looks like a lavender-ish pastel hue, which is in keeping with the tones on the rest of the color options on the 12 lineup, which include a mint green and a red that leans toward the pink end of the spectrum.', '<p><strong>Apple has added</strong> a new color option to the iPhone 12 lineup — a rare midcycle facelift for the company’s flagship product. The new color is purple, and looks like a lavender-ish pastel hue, which is in keeping with the tones on the rest of the color options on the 12 lineup, which include a mint green and a red that leans toward the pink end of the spectrum.</p><p>The purple iPhone 12 is going on sale starting this Friday, April 23 and will begin shipping out to customers on April 30. It’s available for iPhone 12 and 12 mini, but the iPhone 12 Pro isn’t getting any new color options to match.</p><p>It’s a small thing, but not a bad way for Apple to jazz up their hardware midcycle in a bid to excite general consumers. Also, it suggests Apple is leaning in even more to a multicolor aesthetic for its hardware, which is a refreshing change after a mostly monochrome approach in recent years.</p>', 1, '2023-12-14 07:09:43', '2023-12-14 08:00:34', NULL),
@@ -50,38 +35,4 @@ INSERT INTO `posts` (`id`, `title`, `cover`, `summary`, `content`, `author_id`, 
 (8, 'Gag City is a viral', 'L73Od4hx7GPeI21V4k5urwJf0iIkEj.webp', 'Welcome to Gag City, the pink metropolis inhabited by stans and brands alike.  In the days leading up to the release of “Pink Friday 2,” Nicki Minaj’s fifth studio album and sequel to her debut record “Pink Friday” that dropped on Friday, Twitter was flooded with AI-generated images of pink-toned cityscapes.', '<p>Welcome to Gag City, the pink metropolis inhabited by stans and brands alike.</p><p>In the days leading up to the release of “Pink Friday 2,” Nicki Minaj’s fifth studio album and sequel to her debut record “Pink Friday” that dropped on Friday, Twitter was flooded with AI-generated images of pink-toned cityscapes. Gag City, the dreamy false utopia ruled by Minaj and her Barbz, broke through stan Twitter and became a viral meme that brand accounts immediately used for their own marketing — promoting Minaj’s album for free.</p><p>Is it an authentic stan-led campaign to build hype for Minaj? Is it a plant to game engagement for both the album and brands? What’s clear is that the viral moment is a win for Minaj, manufactured or not.</p><p>It started in September, when Minaj teased the album’s cover art online. The image features Minaj on a pink subway car, drifting through pink clouds with a futuristic (and obviously, pink) city skyline in the background.</p>', 2, '2023-12-14 10:26:54', '2023-12-14 10:26:54', NULL),
 (9, 'asd', 'DQ1gRYXrFiSQU4yudaKBHSO7wUPvGe.jpg', 'asd', '<p>asdsa</p>', 1, '2023-12-14 11:09:44', '2023-12-14 11:09:44', NULL);
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `posts`
---
-ALTER TABLE `posts`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `posts_author_id_foreign` (`author_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `posts`
---
-ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `posts`
---
-ALTER TABLE `posts`
-  ADD CONSTRAINT `posts_author_id_foreign` FOREIGN KEY (`author_id`) REFERENCES `users` (`id`);
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

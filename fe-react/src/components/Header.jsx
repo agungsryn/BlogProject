@@ -24,7 +24,6 @@ const Header = () => {
       })
       .catch(() => {});
   };
-  console.log("userInfo?.username", userInfo?.username);
   const username = userInfo?.username;
 
   return (
@@ -42,7 +41,6 @@ const Header = () => {
         {!username && (
           <>
             <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
           </>
         )}
       </nav>

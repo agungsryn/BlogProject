@@ -4,19 +4,20 @@ import { UserContext } from "../userContext";
 import PostServices from "../services/PostServices";
 import { format } from "date-fns";
 import Swal from "sweetalert2";
+import Comment from "../components/Comment";
+import CommentServices from "../services/CommentServices";
 const PostDetailPage = () => {
   const [postInfo, setPostInfo] = useState("");
   const { userInfo } = useContext(UserContext);
-  const [redirect , setRedirect] = useState(false)
+  const [redirect, setRedirect] = useState(false);
+  const [comments_content, setCommentContent] = useState("");
   const { id } = useParams();
   useEffect(() => {
     PostServices.getById(id)
       .then(({ data }) => {
         setPostInfo(data.data);
       })
-      .catch((err) => {
-        console.log("error", err);
-      });
+      .catch(() => {});
   }, []);
 
   const handleDelete = (id) => {
@@ -30,7 +31,7 @@ const PostDetailPage = () => {
       if (result.isConfirmed) {
         PostServices.remove(id)
           .then(() => {
-            setRedirect(true)
+            setRedirect(true);
             Swal.fire("Deleted!", "", "success");
           })
           .catch(() => {
@@ -40,7 +41,22 @@ const PostDetailPage = () => {
     });
   };
 
-  if (redirect) {
+  const handleCreateComment = (ev) => {
+    ev.preventDefault();
+    CommentServices.create({ post_id: id, comments_content })
+      .then(() => {
+        PostServices.getById(id)
+          .then(({ data }) => {
+            setPostInfo(data.data);
+          })
+          .catch(() => {});
+        setCommentContent("");
+      })
+      .catch(() => {});
+  };
+
+
+  if ( redirect || !userInfo.username) {
     return <Navigate to={"/"} />;
   }
 
@@ -105,6 +121,27 @@ const PostDetailPage = () => {
         className="content"
         dangerouslySetInnerHTML={{ __html: postInfo.content }}
       ></div>
+      <span className="separator"></span>
+      <span className="comment">
+        {" "}
+        {postInfo.comment_total} Comments
+      </span>
+      {postInfo.comments &&
+        postInfo.comments.map((comment) => (
+          <Comment key={comment.id} {...comment} />
+        ))}
+      <form onSubmit={handleCreateComment}>
+        <div className="comment-form">
+          <input
+            type="textarea"
+            placeholder={"Comment"}
+            value={comments_content}
+            required
+            onChange={(ev) => setCommentContent(ev.target.value)}
+          />
+          <button disabled={comments_content === ""}>Comment</button>
+        </div>
+      </form>
     </div>
   );
 };
