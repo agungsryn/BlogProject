@@ -3,7 +3,7 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This project is using react as frontend, laravel as backend & MySql As DB.
+This project uses react as frontend, laravel as backend & MySql As DB.
 
 ### Installation
 1. Go to be-laravel directory
@@ -23,16 +23,14 @@ This project is using react as frontend, laravel as backend & MySql As DB.
 
 ## How to Run
 
-1. Open in browser  `http://localhost:5173` and login with, 
+1. Open in browser  `http://localhost:5173` and log in with, 
    ```sh
-   email : agung@mail.com
-   password : Password123
+   email: agung@mail.com
+   password: Password123
 
    or
 
-   email : ros@mail.com
-   password : Password123
+   email: ros@mail.com
+   password: Password123
 
    ```
-2. Run via vscode `recommended`<br>
-   open file main.dart , click press the play button in the top right corner
